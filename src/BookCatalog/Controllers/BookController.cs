@@ -28,6 +28,19 @@ public class BookController : ControllerBase
     return Ok(book);
   }
 
+  [HttpGet("{id}/shipping")]
+  public IActionResult GetShippingValue(int id)
+  {
+    var book = _repository.GetById(id);
+
+    if (book == null)
+    {
+      return NotFound();
+    }
+
+    return Ok(book.CalculateShipping());
+  }
+
   [HttpGet("all")]
   public IEnumerable<Book> GetAll()
   {

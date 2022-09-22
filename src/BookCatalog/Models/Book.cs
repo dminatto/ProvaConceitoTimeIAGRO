@@ -1,7 +1,6 @@
+using System.Globalization;
 
 namespace BookCatalog.Models;
-
-
 public class Book
 {
   private const int ShippingTax = 20;
@@ -11,9 +10,10 @@ public class Book
   public double Price { get; set; }
   public Specification Specifications { get; set; }
 
-  public double CalculateShipping()
+  public string CalculateShipping()
   {
-    return (Price * ShippingTax) / 100;
+    var shipping = (Price * ShippingTax) / 100;
+    return shipping.ToString("n2");
   }
 
 }
