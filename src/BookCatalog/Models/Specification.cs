@@ -17,6 +17,6 @@ public class Specification
   [JsonPropertyNameAttribute("Illustrator")]
   public object Illustrators { get; set; }
 
-  public object Genres { get; set; }
+  public Object Genres { get; set; }
 
 }

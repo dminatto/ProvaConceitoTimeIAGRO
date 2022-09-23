@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BookCatalog.Repository;
 using BookCatalog.Models;
+using BookCatalog.Helpers;
 
 namespace BookCatalog.Controllers;
 
@@ -45,6 +46,12 @@ public class BookController : ControllerBase
   public IEnumerable<Book> GetAll()
   {
     return _repository.GetAll();
+  }
+
+  [HttpGet("")]
+  public IEnumerable<Book> Find([FromQuery] QueryParameters? filter)
+  {
+    return _repository.FindInBooks(filter);
   }
 
 
