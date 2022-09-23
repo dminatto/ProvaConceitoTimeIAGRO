@@ -4,7 +4,7 @@ namespace BookCatalog.Helpers;
 
 public static class BookFilter
 {
-  public static IEnumerable<Predicate<Book>> GenerateQuery(this QueryParameters filter)
+  public static IEnumerable<Predicate<Book>> GenerateQuery(this BookParameters filter)
   {
     if (filter.Id.HasValue)
       yield return f => f.Id == filter.Id;

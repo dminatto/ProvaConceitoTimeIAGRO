@@ -20,7 +20,7 @@ public class BookRepository : IBookRepository
     return this._context.ToArray();
   }
 
-  public Book[]? FindInBooks(QueryParameters? filter)
+  public Book[]? FindInBooks(BookParameters? filter)
   {
     var predicates = BookFilter.GenerateQuery(filter);
     return this._context.Where(a => predicates.All(p => p(a))).ToArray();

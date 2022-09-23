@@ -6,5 +6,5 @@ public interface IBookRepository
 {
   public Book? GetById(int Id);
   public Book[] GetAll();
-  public Book[]? FindInBooks(QueryParameters filter);
+  public Book[]? FindInBooks(BookParameters filter);
 }

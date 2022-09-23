@@ -16,17 +16,10 @@ public class BookController : ControllerBase
     _repository = repository;
   }
 
-  [HttpGet("{id}")]
-  public IActionResult Get(int id)
+  [HttpGet("")]
+  public IEnumerable<Book> Find([FromQuery] BookParameters? filter)
   {
-    var book = _repository.GetById(id);
-
-    if (book == null)
-    {
-      return NotFound();
-    }
-
-    return Ok(book);
+    return _repository.FindInBooks(filter);
   }
 
   [HttpGet("{id}/shipping")]
@@ -41,18 +34,4 @@ public class BookController : ControllerBase
 
     return Ok(book.CalculateShipping());
   }
-
-  [HttpGet("all")]
-  public IEnumerable<Book> GetAll()
-  {
-    return _repository.GetAll();
-  }
-
-  [HttpGet("")]
-  public IEnumerable<Book> Find([FromQuery] QueryParameters? filter)
-  {
-    return _repository.FindInBooks(filter);
-  }
-
-
 }

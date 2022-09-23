@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookCatalog.Helpers;
 [BindProperties]
-public class QueryParameters
+public class BookParameters
 {
   public int? Id { get; set; }
   public string? Name { get; set; }
